@@ -12,5 +12,5 @@ def hello_world():
 def submit():
     input_email = request.form.get("email")
     input_message = request.form.get("message")
-    return render_template("hello.html", email=input_email, message=input_message)
-
+    return render_template("hello.html",
+                           email=input_email, message=input_message)
