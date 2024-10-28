@@ -54,7 +54,7 @@ jobs:
       - name: ImPaaS-Deploy
         uses: /impaas/impaas-deploy@v3
         with:
-          app-name: mo1024sse2425 
+          app-name: mo1024-sse-app 
           deployment-token: ${{ secrets.IMPAAS_DEPLOY_TOKEN }}
           method: PLATFORM
 
