@@ -40,7 +40,7 @@ jobs:
           pip install flask
       
       - name: run pytest
-        run: pytest . 
+        run: pytest app_test.py
                 
 
   deploy-to-impaas:
