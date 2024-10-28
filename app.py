@@ -15,13 +15,15 @@ def submit():
     return render_template("hello.html",
                            email=input_email, message=input_message)
 
+
 @app.route("/query")
 def get_query():
     query = request.args.get('q')
     return process_query(query)
 
+
 def process_query(animal):
     if animal == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
-    else: 
+    else:
         return "Unknown"
