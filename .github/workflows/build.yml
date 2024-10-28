@@ -34,4 +34,3 @@ jobs:
           app-name: APP_NAME_GOES_HERE
           deployment-token: ${{ secrets.IMPAAS_DEPLOY_TOKEN }}
           method: PLATFORM
-
