@@ -27,6 +27,13 @@ def github():
     return render_template("new_API_page.html")
 
 
+@app.route("/github/<username>")
+def receive_username():
+    username = request.form.get("username")
+    return render_template("hello_username.html",
+                           username=username)
+
+
 def process_query(animal):
     if animal == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
