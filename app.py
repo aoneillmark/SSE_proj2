@@ -42,7 +42,7 @@ def receive_username():
 
     repo_commits = []
     for repo in repos:
-        response2 = requests.get(f"https://api.github.com/repos/{username}/{repo["name"]}/commits")
+        response2 = requests.get(f"https://api.github.com/repos/{username}/{repo['name']}/commits")
         recent_commit = response2.json()[0] if response2.json() else None
         repo_commits.append({
             "repo": repo,
