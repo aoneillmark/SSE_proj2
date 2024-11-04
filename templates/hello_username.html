@@ -11,14 +11,23 @@
                 <tr>
                     <th>Name</th>
                     <th>Last Updated</th>
+                    <th>Commit Hash</th>
+                    <th>Author</th>
+                    <th>Date</th>
+                    <th>Commit Message</th>
+
                 </tr>
             </thead>
             <tbody>
-                {% for repo in github_repos %}
+                {% for item in repo_commits %}
                     <tr>
-                        <td>{{ repo.full_name }}</td>
-                        <td>{{ repo.updated_at }}</td>
-                        
+                        <td>{{ item.repo.full_name }}</td>
+                        <td>{{ item.repo.updated_at }}</td>
+                        <td>{{ item.commit.sha }}</td>
+                        <td>{{ item.commit.commit.author.name }}</td>
+                        <td>{{ item.commit.commit.author.date }}</td>
+                        <td>{{ item.commit.commit.message }}</td>
+
                     </tr>
                 {% endfor %}
             </tbody>

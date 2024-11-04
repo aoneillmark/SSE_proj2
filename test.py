@@ -9,6 +9,13 @@ if response.status_code == 200:
         print(repo["full_name"])
 else: 
     print("Problem here...")
+
+repo_commits = []
 for repo in repos:
     response2 = requests.get(f"https://api.github.com/repos/{username}/{repo["name"]}/commits")
-    print(response2.json())
+    recent_commit = response2.json()[0] if response2.json() else None
+    repo_commits.append({
+        "repo": repo,
+        "commit": recent_commit,
+    })
+

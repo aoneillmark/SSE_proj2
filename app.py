@@ -37,20 +37,22 @@ def receive_username():
     if response.status_code == 200:
         repos = response.json()  
         # data returned is a list of ‘repository’ entities
-        for repo in repos:
-            print(repo["full_name"])
-    # End provided code
 
-    # Get commit
-    # /repos/{owner}/{repo}/commits/{ref}
-    # /response
-    response2 = requests.get(f"https://api.github.com/repos/{username}/{repo}/commits")
+
+
+    repo_commits = []
+    for repo in repos:
+        response2 = requests.get(f"https://api.github.com/repos/{username}/{repo["name"]}/commits")
+        recent_commit = response2.json()[0] if response2.json() else None
+        repo_commits.append({
+            "repo": repo,
+            "commit": recent_commit,
+        })
+
 
     return render_template("hello_username.html",
                            username=username,
-                           github_repos=response.json(),)
-                        #    commits=response2.json())
-
+                           repo_commits=repo_commits,)
 
 # def process_query(animal):
 #     if animal == "dinosaurs":
