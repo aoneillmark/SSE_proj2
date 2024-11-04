@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-
 <html>
-	<head>
-		<body>
-			<h1> Hello {{ username }} </h1>
-		</body>
-	</head>
+    <head>
+    </head>
+    <body>
+        <h1>Hello {{ username }}</h1>
+        <h2>Printing repos:</h2>
+        <ul>
+            {% for repo in github_repos %}
+                <li>Name: {{ repo.full_name }}, last updated: {{ repo.updated_at }}</li>
+            {% endfor %}
+        </ul>
+    </body>
 </html>
