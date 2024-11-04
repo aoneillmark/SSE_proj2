@@ -48,8 +48,8 @@ def receive_username():
 
     return render_template("hello_username.html",
                            username=username,
-                           github_repos=response.json(),
-                           commits=response2.json())
+                           github_repos=response.json(),)
+                        #    commits=response2.json())
 
 
 # def process_query(animal):
