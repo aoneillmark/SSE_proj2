@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>GitHub Repositories</title>
     </head>
     <body>
         <h1>Hello {{ username }}</h1>
         <h2>Printing repos:</h2>
-        <ul>
-            {% for repo in github_repos %}
-                <li>Name: {{ repo.full_name }}, last updated: {{ repo.updated_at }}</li>
-            {% endfor %}
-        </ul>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Last Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for repo in github_repos %}
+                    <tr>
+                        <td>{{ repo.full_name }}</td>
+                        <td>{{ repo.updated_at }}</td>
+                        <td>{{ commits.message }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </body>
 </html>

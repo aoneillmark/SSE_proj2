@@ -40,9 +40,15 @@ def receive_username():
             print(repo["full_name"])
     # End provided code
 
+    # Get commit
+    # /repos/{owner}/{repo}/commits/{ref}
+    # /response
+    response2 = requests.get(f"https://api.github.com/repos/{username}/{repo}/commits")
+
     return render_template("hello_username.html",
                            username=username,
-                           github_repos=response.json())
+                           github_repos=response.json(),
+                           commits=response2.json())
 
 
 # def process_query(animal):
