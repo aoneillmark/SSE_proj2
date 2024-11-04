@@ -32,4 +32,3 @@ def process_query(animal):
         return "Dinosaurs ruled the Earth 200 million years ago"
     else:
         return "Unknown"
-
