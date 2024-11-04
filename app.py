@@ -24,7 +24,7 @@ def get_query():
 
 @app.route("/github")
 def github():
-    return render_template("new_API_page.html")
+    return render_template("/src/templates/new_API_page.html")
 
 def process_query(animal):
     if animal == "dinosaurs":
