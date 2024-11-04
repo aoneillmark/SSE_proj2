@@ -44,7 +44,7 @@ jobs:
                 
 
   deploy-to-impaas:
-    needs: dinosaur-check
+    needs: python-formatting
     runs-on: ubuntu-latest
 
     steps:
