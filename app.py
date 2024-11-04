@@ -27,7 +27,7 @@ def github():
     return render_template("new_API_page.html")
 
 
-@app.route("/github/<username>")
+@app.route("/github/username")
 def receive_username():
     username = request.form.get("username")
     return render_template("hello_username.html",
