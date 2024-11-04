@@ -43,11 +43,24 @@ def receive_username():
     repo_commits = []
     for repo in repos:
         response2 = requests.get(f"https://api.github.com/repos/{username}/{repo['name']}/commits")
-        recent_commit = response2.json()[0] if response2.json() else None
-        repo_commits.append({
-            "repo": repo,
-            "commit": recent_commit,
-        })
+        if response2.status_code == 200:
+            recent_commit = response2.json()[0] if response2.json() else None
+            
+            # Fun extra thing: Repo languages
+            language_response = requests.get(repo["languages_url"]).json()
+            denominator = sum(int(value) for value in language_response.values())
+
+            if denominator > 0:  # never divide by 0. I'm serious this time.
+                language_percentages = {language: (int(amount)/denominator)*100 for language, amount in language_response.items()}
+            else: 
+                language_percentages = {}
+
+            repo_commits.append({
+                "repo": repo,
+                "commit": recent_commit,
+                "languages": language_percentages,
+            })
+
 
 
     return render_template("hello_username.html",

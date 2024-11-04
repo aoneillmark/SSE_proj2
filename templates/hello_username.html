@@ -15,6 +15,7 @@
                     <th>Author</th>
                     <th>Date</th>
                     <th>Commit Message</th>
+                    <th>Languages</th>
 
                 </tr>
             </thead>
@@ -27,7 +28,11 @@
                         <td>{{ item.commit.commit.author.name }}</td>
                         <td>{{ item.commit.commit.author.date }}</td>
                         <td>{{ item.commit.commit.message }}</td>
-
+                        <td>
+                            {% for language, percentage in item.languages.items() %}
+                                {{ language }}: {{percentage}}
+                            {% endfor %}
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
