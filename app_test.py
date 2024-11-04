@@ -1,4 +1,4 @@
-from app import process_query
+# from app import process_query
 
 fact = "Dinosaurs ruled the Earth 200 million years ago"
 

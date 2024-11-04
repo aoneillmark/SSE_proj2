@@ -16,10 +16,10 @@ def submit():
                            email=input_email, message=input_message)
 
 
-@app.route("/query")
-def get_query():
-    query = request.args.get('q')
-    return process_query(query)
+# @app.route("/query")
+# def get_query():
+#     query = request.args.get('q')
+#     return process_query(query)
 
 
 @app.route("/github")
@@ -34,8 +34,8 @@ def receive_username():
                            username=username)
 
 
-def process_query(animal):
-    if animal == "dinosaurs":
-        return "Dinosaurs ruled the Earth 200 million years ago"
-    else:
-        return "Unknown"
+# def process_query(animal):
+#     if animal == "dinosaurs":
+#         return "Dinosaurs ruled the Earth 200 million years ago"
+#     else:
+#         return "Unknown"
