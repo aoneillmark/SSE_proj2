@@ -22,8 +22,13 @@ def get_query():
     return process_query(query)
 
 
+@app.route("/github")
+def github():
+    return render_template("new_API_page.html")
+
 def process_query(animal):
     if animal == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
     else:
         return "Unknown"
+
