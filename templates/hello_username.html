@@ -30,7 +30,7 @@
                         <td>{{ item.commit.commit.message }}</td>
                         <td>
                             {% for language, percentage in item.languages.items() %}
-                                {{ language }}: {{percentage}}
+                                {{ language }}: {{ percentage | round(2) }} %<br>
                             {% endfor %}
                         </td>
                     </tr>
